@@ -1,0 +1,23 @@
+{
+  "name": "daft-skunk",
+  "version": "1.0.0",
+  "homepage": "https://github.com/callmenick/Daft-Skunk",
+  "authors": [
+    "Nick Salloum <nick@callmenick.com>"
+  ],
+  "description": "daft skunk multi track interface using node, express, backbone, audio, and svg",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.1",
+    "underscore": "~1.8.3",
+    "jquery": "~2.1.4"
+  }
+}
