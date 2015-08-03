@@ -1,0 +1,40 @@
+/* -----------------------------------------------------------------------------
+
+  TRACKS
+  
+----------------------------------------------------------------------------- */
+
+/* tracks view */
+
+.tracks {
+  border: solid 4px rgb(0, 0, 0);
+}
+
+/* tracks controls */
+
+.tracks-controls {
+  padding: 12px;
+  background-color: #000;
+}
+
+/* track view */
+
+.track {
+  height: 92px;
+}
+
+/* track sample view */
+
+.track__sample {
+  width: 280px;
+  height: 100%;
+  background-color: #fff;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.track__details {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
