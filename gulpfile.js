@@ -57,7 +57,7 @@ gulp.task('scripts', function() {
   gulp.src(filePaths.scripts)
     .pipe(concat('daftskunk.js'))
     .pipe(gulp.dest(dirPaths.scripts))
-    .pipe(uglify())
+    .pipe(uglify().on('error', gutil.log))
     .pipe(rename({
       suffix: '.min'
     }))

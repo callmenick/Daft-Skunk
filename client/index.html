@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="dist/css/style.min.css">
   <script src="lib/jquery/dist/jquery.min.js"></script>
   <script src="lib/underscore/underscore-min.js"></script>
+  <script src="lib/handlebars/handlebars.min.js"></script>
   <script src="lib/backbone/backbone-min.js"></script>
 </head>
 <body>
@@ -18,46 +19,26 @@
     </div>
   </header><!-- /header -->
 
-  <main class="main">
-    
-    <div id="tracks" class="tracks">
-      
-      <nav class="tracks-controls">
-        add track // play // pause // export
-      </nav>
-
-      <div class="track">
-        <div class="track__sample">
-          <ul class="track__details">
-            <li>sample name</li>
-            <li>sample length</li>
-            <li>remove sample</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="track">
-
-        this is a track
-      </div>
-
-      <div class="track">
-        this is a track
-      </div>
-
-      <div class="track">
-        this is a track
-      </div>
-
-    </div><!-- /tracks -->
-
-    <div id="library" class="library">
-      library of songs
-    </div><!-- /library -->
-
-  </main><!-- /main -->
+  <main id="app" class="app">
+    <div id="library" class="library"></div><!-- /library -->
+  </main><!-- /app -->
 
 </div><!-- /container -->
+
+<!-- track controls template -->
+<script id="track-controls-template" type="text/x-handlebars-template">
+  <ul class="tracks-controls__items">
+    <li><a href="#">add track</a></li>
+    <li><a href="#">remove all tracks</a></li>
+    <li><a href="#">play</a></li>
+    <li><a href="#">pause</a></li>
+  </ul>
+</script>
+
+<!-- track template -->
+<script id="track-template" type="text/x-handlebars-template">
+  {{ name }}
+</script>
 
 <script src="dist/js/daftskunk.min.js"></script>
 
