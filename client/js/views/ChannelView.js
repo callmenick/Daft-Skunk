@@ -17,11 +17,21 @@ app.ChannelView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
+
+    this.model.on('addToChannel', function() {
+      this.addTrack();
+    }, this);
   },
 
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template(this.model.attributes));
     return this;
+  },
+
+  addTrack: function() {
+    var sampleModel = app.samplesCollection.get(this.model.sampleId);
+    var track = new app.TrackView({model: sampleModel});
+    this.$el.find('.channel__tracks').append(track.$el);
   }
 
 });
