@@ -14,7 +14,8 @@ app.ControlsView = Backbone.View.extend({
 
   events: {
     'click .controls__add-channel'    : 'addChannel',
-    'click .controls__play'           : 'playSong'
+    'click .controls__play'           : 'playSkunk',
+    'click .controls__pause'          : 'pauseSkunk'
   },
 
   initialize: function() {
@@ -31,8 +32,13 @@ app.ControlsView = Backbone.View.extend({
     app.channelsCollection.addChannel();
   },
 
-  playSong: function(e) {
+  playSkunk: function(e) {
     e.preventDefault();
+
+    this.$el.find('.controls__play')
+      .removeClass('controls__play')
+      .addClass('controls__pause')
+      .html('<i class="fa fa-pause"></i> pause your skunk');
 
     for (var key in app.skunkPunk) {
       var item = app.skunkPunk[key];
@@ -43,10 +49,18 @@ app.ControlsView = Backbone.View.extend({
   },
 
   playTrack: function(file, delay) {
-    console.log(file);
     setTimeout(function() {
       file[0].play();
     }, delay);
+  },
+
+  pauseSkunk: function(e) {
+    e.preventDefault();
+
+    this.$el.find('.controls__pause')
+      .removeClass('controls__pause')
+      .addClass('controls__play')
+      .html('<i class="fa fa-play"></i> play your skunk');
   }
 
 });
