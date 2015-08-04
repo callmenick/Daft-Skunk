@@ -46,6 +46,8 @@ app.ControlsView = Backbone.View.extend({
       var delay = item.delay;
       this.playTrack(file, delay);
     }
+
+    this.moveTicker();
   },
 
   playTrack: function(file, delay) {
@@ -61,6 +63,15 @@ app.ControlsView = Backbone.View.extend({
       .removeClass('controls__pause')
       .addClass('controls__play')
       .html('<i class="fa fa-play"></i> play your skunk');
+  },
+
+  moveTicker: function() {
+    var ticker = this.$el.find('.controls__ticker--tick');
+    setInterval(function() {
+      var left = ticker[0].style.left;      
+      left = parseFloat(left);
+      ticker[0].style.left = left + 0.04166 + '%';
+    }, 100);
   }
 
 });

@@ -40,6 +40,11 @@
       <a href="#" class="controls__play"><i class="fa fa-play"></i> play your skunk</a>
     </li>
   </ul>
+  <div class="controls__ticker">
+    <div class="controls__ticker-inner">
+      <span class="controls__ticker--tick" style="left: 0%"></span>
+    </div>
+  </div>
 </script>
 
 <!-- track template -->
@@ -83,7 +88,8 @@
   </div>
   <div class="sample__field sample__field--center">
     <select class="sample__select-channel">
-      <option value="">-- Add To Channel --</option>
+      <option value="">-- Choose a channel --</option>
+      <optgroup label="Channels:" class="sample__select-channel-options"></optgroup>
     </select>
   </div>
 </script>
