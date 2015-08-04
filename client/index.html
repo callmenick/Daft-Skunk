@@ -42,20 +42,40 @@
 
 <!-- track template -->
 <script id="channel-template" type="text/x-handlebars-template">
-  {{ id }}
+  <ul class="channel__info">
+    <li class="channel__info-item">1</li>
+    <li class="channel__info-item"><i class="fa fa-volume-off"></i></li>
+    <li class="channel__info-item"><i class="fa fa-trash"></i></li>
+  </ul>
+  <div class="channel__tracks"></div>
 </script>
 
 <!-- samples template -->
 <script id="samples-template" type="text/x-handlebars-template">
-  
+  <div class="samples__header">
+    <div class="sample__field sample__field--50">Sample Title</div>
+    <div class="sample__field sample__field--center">Length</div>
+    <div class="sample__field sample__field--center">Preview</div>
+    <div class="sample__field sample__field--center">Add</div>
+  </div>
+  <div class="sample__tracks"></div>
 </script>
 
 <!-- sample template -->
 <script id="sample-template" type="text/x-handlebars-template">
-  <div class="sample__field sample__title">{{ title }}</div>
-  <div class="sample__field sample__length">{{ length }}</div>
-  <div class="sample__field sample__preview">preview</div>
-  <div class="sample__field sample__add">add</div>
+  <div class="sample__field sample__field--50">
+    {{ title }}
+  </div>
+  <div class="sample__field sample__field--center">
+    {{ length }}
+  </div>
+  <div class="sample__field sample__field--center">
+    <i class="fa fa-play fa-lg sample__preview"></i>
+    <audio class="sample__audio" src="{{ url }}">
+  </div>
+  <div class="sample__field sample__field--center">
+    add
+  </div>
 </script>
 
 <!-- models -->
