@@ -12,14 +12,9 @@ app.ChannelsCollection = Backbone.Collection.extend({
   },
 
   addChannel: function() {
-    this.add({});
-  },
-
-  removeChannel: function() {
-    // if (this.length > 1) {
-    //   var channel = this.pop();
-    //   channel.removeChannel();
-    // }
+    this.add({
+      number: app.channelsCollection.length + 1
+    });
   }
 
 });

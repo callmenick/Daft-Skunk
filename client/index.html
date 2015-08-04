@@ -5,9 +5,11 @@
   <title>Daft Skunk</title>
   <link rel="stylesheet" href="dist/css/font-awesome.min.css">
   <link rel="stylesheet" href="dist/css/style.min.css">
+  
   <script src="lib/jquery/dist/jquery.min.js"></script>
   <script src="lib/underscore/underscore-min.js"></script>
   <script src="lib/handlebars/handlebars.min.js"></script>
+  <script src="lib/draggabilly/dist/draggabilly.pkgd.js"></script>
   <script src="lib/backbone/backbone-min.js"></script>
 </head>
 <body>
@@ -43,9 +45,15 @@
 <!-- track template -->
 <script id="channel-template" type="text/x-handlebars-template">
   <ul class="channel__info">
-    <li class="channel__info-item">1</li>
-    <li class="channel__info-item"><i class="fa fa-volume-off"></i></li>
-    <li class="channel__info-item"><i class="fa fa-trash"></i></li>
+    <li class="channel__info-item">
+      {{ number }}
+    </li>
+    <li class="channel__info-item">
+      <i class="fa fa-volume-off"></i>
+    </li>
+    <li class="channel__info-item">
+      <i class="fa fa-trash"></i>
+    </li>
   </ul>
   <div class="channel__tracks"></div>
 </script>
@@ -67,15 +75,24 @@
     {{ title }}
   </div>
   <div class="sample__field sample__field--center">
-    {{ length }}
+    {{ timeSeconds }} seconds
   </div>
   <div class="sample__field sample__field--center">
     <i class="fa fa-play fa-lg sample__preview"></i>
     <audio class="sample__audio" src="{{ url }}">
   </div>
   <div class="sample__field sample__field--center">
-    add
+    <select class="sample__select-channel">
+      <option value="">-- Add To Channel --</option>
+    </select>
   </div>
+</script>
+
+<!-- track template -->
+<script id="track-template" type="text/x-handlebars-template">
+  <span class="track__title">{{ title }}</span>
+  <div class="track__actions"><i class="fa fa-ban"></i></div>
+  <audio class="track__audio" src="{{ url }}">
 </script>
 
 <!-- models -->
@@ -92,6 +109,7 @@
 <script src="js/views/SampleView.js"></script>
 <script src="js/views/ChannelsView.js"></script>
 <script src="js/views/ChannelView.js"></script>
+<script src="js/views/TrackView.js"></script>
 <script src="js/views/ControlsView.js"></script>
 <script src="js/views/AppView.js"></script>
 

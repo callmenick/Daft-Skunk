@@ -13,6 +13,7 @@ app.ChannelsView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(app.channelsCollection, 'add', this.renderChannel);
     this.addChannel();
+    this.addChannel();
   },
 
   addChannel: function() {
@@ -20,7 +21,7 @@ app.ChannelsView = Backbone.View.extend({
   },
 
   renderChannel: function() {
-    var channel = new app.ChannelView({model: new app.ChannelModel});
+    var channel = new app.ChannelView({model: app.channelsCollection.last()});
     this.$el.append(channel.$el);
   }
 

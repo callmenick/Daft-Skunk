@@ -31,13 +31,22 @@ app.ControlsView = Backbone.View.extend({
     app.channelsCollection.addChannel();
   },
 
-  removeChannel: function(e) {
-    e.preventDefault();
-    app.channelsCollection.removeChannel();
-  },
-
   playSong: function(e) {
     e.preventDefault();
+
+    for (var key in app.skunkPunk) {
+      var item = app.skunkPunk[key];
+      var file = item.file;
+      var delay = item.delay;
+      this.playTrack(file, delay);
+    }
+  },
+
+  playTrack: function(file, delay) {
+    console.log(file);
+    setTimeout(function() {
+      file[0].play();
+    }, delay);
   }
 
 });

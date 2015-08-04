@@ -27,3 +27,4 @@ $color--neutral-xxlight: rgb(244, 244, 244);
 
 $color--pink: rgb(255, 50, 100);
 $color--green: rgb(100, 255, 50);
+$color--green-dark: darken($color--green, 40%);

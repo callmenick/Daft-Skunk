@@ -9,7 +9,8 @@ var app = app || {};
 ////////////////////////////////////////////////
 
 $(document).ready(function() {
-  // collections
+  app.skunkPunk = {};
+
   app.channelsCollection = new app.ChannelsCollection();
   app.samplesCollection = new app.SamplesCollection();
 

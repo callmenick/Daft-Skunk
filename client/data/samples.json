@@ -2,36 +2,36 @@
   {
     "title": "Aerodynamic",
     "url": "/data/tracks/aerodynamic.mp3",
-    "length": "2470"
+    "time": "23510"
   },
   {
     "title": "Around The World 1",
     "url": "/data/tracks/around-the-world-1.mp3",
-    "length": "2470"
+    "time": "15882"
   },
   {
     "title": "Around The World 2",
     "url": "/data/tracks/around-the-world-2.mp3",
-    "length": "224"
+    "time": "15882"
   },
   {
     "title": "Around The World Intro 1",
     "url": "/data/tracks/around-the-world-intro-1.mp3",
-    "length": ""
+    "time": "2037"
   },
   {
     "title": "Around The World Intro 2",
     "url": "/data/tracks/around-the-world-intro-2.mp3",
-    "length": ""
+    "time": "2037"
   },
   {
     "title": "Around The World Riff 1",
     "url": "/data/tracks/around-the-world-riff-1.mp3",
-    "length": ""
+    "time": "4022"
   },
   {
     "title": "Around The World Riff 2",
     "url": "/data/tracks/around-the-world-riff-2.mp3",
-    "length": ""
+    "time": "4022"
   }
 ]
