@@ -5,14 +5,13 @@
 ----------------------------------------------------------------------------- */
 
 .controls {
-  padding: 12px;
   background-color: #000;
 }
 
 .controls__items {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 12px;
   text-align: center;
 }
 
@@ -26,4 +25,54 @@
   display: block;
   margin: 0;
   color: #fff;
+}
+
+.controls__ticker {
+  position: relative;
+  height: 24px;
+  border-left: solid 4px #000;
+  border-right: solid 4px #000;
+}
+
+.controls__ticker-inner {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 32px;
+  background-color: $color--neutral-xdark;
+}
+
+.controls__ticker--tick {
+  display: block;
+  position: relative;
+  z-index: 10;
+  width: 12px;
+  height: 12px;
+  background-color: $color--pink;
+}
+
+.controls__ticker--tick::after {
+  display: block;
+  position: absolute;
+  bottom: -12px;
+  width: 12px;
+  height: 12px;
+  border-left: solid 12px $color--pink;
+  border-bottom: solid 12px transparent;
+  border-right: solid 12px transparent;
+  content: "";
+}
+
+/* gridline calc */
+
+.controls__ticker-inner::after {
+  display: block;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100%;
+  content: "";
 }

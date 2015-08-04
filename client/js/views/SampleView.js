@@ -24,6 +24,8 @@ app.SampleView = Backbone.View.extend({
     this.$el.find('.sample__audio')[0].addEventListener('ended', function() {
       this.stopSample();
     }.bind(this));
+
+    this.listenTo(app.channelsCollection, 'add', this.renderChannelSelections);
   },
 
   render: function() {
@@ -36,10 +38,12 @@ app.SampleView = Backbone.View.extend({
   },
 
   renderChannelSelections: function() {
+    var select = this.$el.find('.sample__select-channel-options');
+    select.html('');
+
     app.channelsCollection.forEach(function(model) {
-      this.$el.find('.sample__select-channel')
-        .append($('<option value="' + model.cid + '">')
-        .html('Add to channel ' + model.get('number')));
+      select.append($('<option value="' + model.cid + '">')
+        .html('Channel ' + model.get('number')));
     }, this);
   },
 
