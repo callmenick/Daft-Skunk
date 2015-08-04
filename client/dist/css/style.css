@@ -164,7 +164,7 @@ img {
 
 .controls__item > a {
   display: block;
-  padding: 4px;
+  margin: 0;
   color: #fff;
 }
 
@@ -185,22 +185,42 @@ img {
 }
 
 .channel:last-child {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   border-bottom: 0;
 }
 
-/* channel sample view */
-.channel__sample {
-  width: 280px;
-  height: 100%;
-  background-color: #fff;
-  font-size: 12px;
-  border-radius: 4px;
-}
-
-.channel__details {
+.channel__info {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 32px;
+      -ms-flex: 0 0 32px;
+          flex: 0 0 32px;
   list-style: none;
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+.channel__info-item {
+  display: block;
+  height: calc(92px/3);
+  background-color: #3b3b3b;
+  color: #fff;
+  line-height: calc(92px/3);
+  text-align: center;
+  border-bottom: solid 1px #000;
+  border-right: solid 1px #000;
+  cursor: pointer;
+}
+
+.channel__info-item:last-child {
+  border-bottom: none;
+}
+
+.channel__info-item:hover {
+  background-color: #ff3264;
 }
 
 /* -----------------------------------------------------------------------------
@@ -210,9 +230,29 @@ img {
 ----------------------------------------------------------------------------- */
 .samples {
   background-color: #000;
+  border-left: solid 4px #000;
+  border-right: solid 4px #000;
+  border-bottom: solid 4px #000;
 }
 
-/*  */
+/* header */
+.samples__header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+  color: #fff;
+  background-color: #ff3264;
+  border-bottom: solid 4px #000;
+}
+
+/* tracks */
+.sample__tracks {
+  overflow: auto;
+  height: 240px;
+}
+
 .sample {
   display: -webkit-box;
   display: -webkit-flex;
@@ -226,19 +266,30 @@ img {
   border-bottom: none;
 }
 
-.sample__title {
+/* fields */
+.sample__field {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.sample__field--50 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 50%;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%;
 }
 
-.sample__length,
-.sample__preview,
-.sample__add {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.sample__field--center {
   text-align: center;
+}
+
+/* audio */
+.sample__preview {
+  cursor: pointer;
+}
+
+.sample__audio {
+  visibility: hidden;
 }

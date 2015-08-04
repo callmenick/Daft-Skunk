@@ -10,6 +10,8 @@ app.SamplesView = Backbone.View.extend({
 
   className: 'samples',
 
+  template: Handlebars.compile($('#samples-template').html()),
+
   initialize: function() {
     // initial render
     this.render();
@@ -20,13 +22,14 @@ app.SamplesView = Backbone.View.extend({
   },
 
   render: function() {
+    this.$el.html(this.template);
     return this;
   },
 
   populateSamplesLibrary: function() {
     app.samplesCollection.forEach(function(model) {
       var sampleView = new app.SampleView({model: model});
-      this.$el.append(sampleView.$el);
+      this.$el.find('.sample__tracks').append(sampleView.$el);
     }, this);
   }
 
