@@ -13,7 +13,6 @@ app.ChannelsView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(app.channelsCollection, 'add', this.renderChannel);
     this.addChannel();
-    this.addChannel();
   },
 
   addChannel: function() {

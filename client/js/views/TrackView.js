@@ -48,6 +48,10 @@ app.TrackView = Backbone.View.extend({
     };
   },
 
+  removeFromSkunk: function() {
+
+  },
+
   updateSkunk: function() {
     var delay = this.$el.data('draggabilly').position.x / 1140;
 
