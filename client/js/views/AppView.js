@@ -12,8 +12,9 @@ app.AppView = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.tracks = new app.TracksView();
+    this.channels = new app.ChannelsView();
     this.controls = new app.ControlsView();
+    this.samples = new app.SamplesView();
     
     this.render();
   },
@@ -21,7 +22,8 @@ app.AppView = Backbone.View.extend({
   render: function() {
     this.$el.append([
       this.controls.$el,
-      this.tracks.$el
+      this.channels.$el,
+      this.samples.$el
     ]);
   }
 

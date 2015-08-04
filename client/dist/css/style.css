@@ -50,6 +50,9 @@ body {
   color: #818181;
   background-color: #1d1d1d;
   font-family: "Montserrat", Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  border-top: solid 12px #000;
 }
 
 /* -----------------------------------------------------------------------------
@@ -74,6 +77,7 @@ h6 {
   
 ----------------------------------------------------------------------------- */
 a {
+  color: #ff3264;
   text-decoration: none;
 }
 
@@ -113,11 +117,16 @@ img {
   
 ----------------------------------------------------------------------------- */
 .header {
-  padding: 48px;
+  padding: 24px;
 }
 
 .header__logo {
   text-align: center;
+}
+
+.header__logo > img {
+  display: block;
+  margin: 0 auto;
 }
 
 /* -----------------------------------------------------------------------------
@@ -125,34 +134,62 @@ img {
   FOOTER
   
 ----------------------------------------------------------------------------- */
-/* -----------------------------------------------------------------------------
-
-  TRACKS
-  
------------------------------------------------------------------------------ */
-/* tracks view */
-.tracks {
-  border: solid 4px black;
+.footer {
+  padding: 48px;
+  text-align: center;
 }
 
-/* tracks controls */
-.tracks-controls {
+/* -----------------------------------------------------------------------------
+
+  CONTROLS
+  
+----------------------------------------------------------------------------- */
+.controls {
   padding: 12px;
   background-color: #000;
 }
 
-/* track view */
-.track {
+.controls__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.controls__item {
+  display: inline-block;
+  margin: 0 12px;
+  padding: 0;
+}
+
+.controls__item > a {
+  display: block;
+  padding: 4px;
+  color: #fff;
+}
+
+/* -----------------------------------------------------------------------------
+
+  CHANNELS
+  
+----------------------------------------------------------------------------- */
+/* channels view */
+.channels {
+  border: solid 4px black;
+}
+
+/* channel view */
+.channel {
   height: 92px;
   border-bottom: solid 1px rgba(255, 255, 255, 0.1);
 }
 
-.track:last-child {
+.channel:last-child {
   border-bottom: 0;
 }
 
-/* track sample view */
-.track__sample {
+/* channel sample view */
+.channel__sample {
   width: 280px;
   height: 100%;
   background-color: #fff;
@@ -160,7 +197,7 @@ img {
   border-radius: 4px;
 }
 
-.track__details {
+.channel__details {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -168,6 +205,40 @@ img {
 
 /* -----------------------------------------------------------------------------
 
-  LIBRARY
+  SAMPLES
   
 ----------------------------------------------------------------------------- */
+.samples {
+  background-color: #000;
+}
+
+/*  */
+.sample {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+.sample:last-child {
+  border-bottom: none;
+}
+
+.sample__title {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50%;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+}
+
+.sample__length,
+.sample__preview,
+.sample__add {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+}

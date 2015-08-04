@@ -66,5 +66,5 @@ gulp.task('scripts', function() {
 
 gulp.task('watch', function() {
   gulp.watch(filePaths.sass, ['styles']);
-  gulp.watch(filePaths.scripts, ['scripts']);
+  // gulp.watch(filePaths.scripts, ['scripts']);
 });
