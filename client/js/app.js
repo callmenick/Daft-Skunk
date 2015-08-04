@@ -9,5 +9,9 @@ var app = app || {};
 ////////////////////////////////////////////////
 
 $(document).ready(function() {
+  // collections
+  app.channelsCollection = new app.ChannelsCollection();
+  app.samplesCollection = new app.SamplesCollection();
+
   new app.AppView();
 });

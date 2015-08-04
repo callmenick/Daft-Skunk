@@ -1,36 +1,29 @@
 /* -----------------------------------------------------------------------------
 
-  TRACKS
+  CHANNELS
   
 ----------------------------------------------------------------------------- */
 
-/* tracks view */
+/* channels view */
 
-.tracks {
+.channels {
   border: solid 4px rgb(0, 0, 0);
 }
 
-/* tracks controls */
+/* channel view */
 
-.tracks-controls {
-  padding: 12px;
-  background-color: #000;
-}
-
-/* track view */
-
-.track {
+.channel {
   height: 92px;
   border-bottom: solid 1px rgba(255, 255, 255, 0.1);
 }
 
-.track:last-child {
+.channel:last-child {
   border-bottom: 0;
 }
 
-/* track sample view */
+/* channel sample view */
 
-.track__sample {
+.channel__sample {
   width: 280px;
   height: 100%;
   background-color: #fff;
@@ -38,7 +31,7 @@
   border-radius: 4px;
 }
 
-.track__details {
+.channel__details {
   list-style: none;
   margin: 0;
   padding: 0;

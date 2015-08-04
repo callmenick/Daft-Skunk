@@ -1,4 +1,77 @@
 ////////////////////////////////////////////////
+// app.js
+////////////////////////////////////////////////
+
+var app = app || {};
+
+////////////////////////////////////////////////
+// kick things off
+////////////////////////////////////////////////
+
+$(document).ready(function() {
+  var samplesCollection = new app.SamplesCollection(samplesData);
+  var appModel = new app.AppModel({samplesCollection: samplesCollection});
+
+  new app.AppView({model: appModel});
+});
+////////////////////////////////////////////////
+// ChannelsCollection.js
+////////////////////////////////////////////////
+
+var app = app || {};
+
+var ChannelsCollection = Backbone.Collection.extend({
+  
+});
+////////////////////////////////////////////////
+// SamplesCollection.js
+////////////////////////////////////////////////
+
+var app = app || {};
+
+app.SamplesCollection = Backbone.Collection.extend({
+  
+});
+var samplesData = [
+  {
+    url: 'https://s3-us-west-1.amazonaws.com/hr-mytunes/data/04+One+In+A+Million.mp3',
+    title: 'One In A Million',
+    length: '2470'
+  }
+];
+
+////////////////////////////////////////////////
+// AppModel.js
+////////////////////////////////////////////////
+
+var app = app || {};
+
+app.AppModel = Backbone.Model.extend({
+
+  initialize: function() {
+    console.log(this);
+  }
+
+});
+////////////////////////////////////////////////
+// ChannelModel.js
+////////////////////////////////////////////////
+
+var app = app || {};
+
+var ChannelModel = Backbone.Model.extend({
+  
+});
+////////////////////////////////////////////////
+// SampleModel.js
+////////////////////////////////////////////////
+
+var app = app || {};
+
+var SampleModel = Backbone.Model.extend({
+  
+});
+////////////////////////////////////////////////
 // AppView.js
 ////////////////////////////////////////////////
 
@@ -12,7 +85,7 @@ app.AppView = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.tracks = new app.TracksView();
+    this.channels = new app.ChannelsView();
     this.controls = new app.ControlsView();
     
     this.render();
@@ -21,51 +94,24 @@ app.AppView = Backbone.View.extend({
   render: function() {
     this.$el.append([
       this.controls.$el,
-      this.tracks.$el
+      this.channels.$el
     ]);
   }
 
 });
 ////////////////////////////////////////////////
-// ControlsView.js
+// ChannelView.js
 ////////////////////////////////////////////////
 
 var app = app || {};
 
-app.ControlsView = Backbone.View.extend({
+app.ChannelView = Backbone.View.extend({
 
   tagName: 'div',
 
-  className: 'tracks-controls',
+  className: 'channel',
 
-  template: Handlebars.compile($('#track-controls-template').html()),
-
-  events: {
-  },
-
-  initialize: function() {
-    this.render();
-  },
-
-  render: function() {
-    this.$el.html(this.template());
-    return this;
-  }
-
-});
-////////////////////////////////////////////////
-// TrackView.js
-////////////////////////////////////////////////
-
-var app = app || {};
-
-app.TrackView = Backbone.View.extend({
-
-  tagName: 'div',
-
-  className: 'track',
-
-  template: Handlebars.compile($('#track-template').html()),
+  template: Handlebars.compile($('#channel-template').html()),
 
   events: {
   },
@@ -83,16 +129,16 @@ app.TrackView = Backbone.View.extend({
 
 });
 ////////////////////////////////////////////////
-// TracksView.js
+// ChannelsView.js
 ////////////////////////////////////////////////
 
 var app = app || {};
 
-app.TracksView = Backbone.View.extend({
+app.ChannelsView = Backbone.View.extend({
 
   tagName: 'div',
 
-  className: 'tracks',
+  className: 'channels',
 
   events: {
   },
@@ -107,14 +153,14 @@ app.TracksView = Backbone.View.extend({
     this.$el.html('');
 
     // add a track as default
-    this.addTrack();
+    this.addChannel();
 
     // return this
     return this;
   },
 
-  addTrack: function() {
-    var track = new app.TrackView();
+  addChannel: function() {
+    var track = new app.ChannelView();
     this.$el.append(track.$el);
   },
 
@@ -128,15 +174,44 @@ app.TracksView = Backbone.View.extend({
 
 });
 ////////////////////////////////////////////////
-// app.js
+// ControlsView.js
 ////////////////////////////////////////////////
 
 var app = app || {};
 
-////////////////////////////////////////////////
-// kick things off
-////////////////////////////////////////////////
+app.ControlsView = Backbone.View.extend({
 
-$(document).ready(function() {
-  new app.AppView();
+  tagName: 'div',
+
+  className: 'controls',
+
+  template: Handlebars.compile($('#controls-template').html()),
+
+  events: {
+    'click .controls__add-channel' : 'addChannel',
+    'click .controls__remove-channel' : 'removeChannel',
+    'click .controls__play' : 'playSong'
+  },
+
+  initialize: function() {
+    this.render();
+  },
+
+  render: function() {
+    this.$el.html(this.template());
+    return this;
+  },
+
+  addChannel: function(e) {
+    e.preventDefault();
+  },
+
+  removeChannel: function(e) {
+    e.preventDefault();
+  },
+
+  playSong: function(e) {
+    e.preventDefault();
+  }
+
 });

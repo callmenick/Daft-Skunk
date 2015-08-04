@@ -1,28 +1,23 @@
 ////////////////////////////////////////////////
-// TrackView.js
+// app.js
 ////////////////////////////////////////////////
 
 var app = app || {};
 
-app.TrackView = Backbone.View.extend({
+app.SampleView = Backbone.View.extend({
 
   tagName: 'div',
 
-  className: 'track',
+  className: 'sample',
 
-  template: Handlebars.compile($('#track-template').html()),
-
-  events: {
-  },
+  template: Handlebars.compile($('#sample-template').html()),
 
   initialize: function() {
     this.render();
   },
 
   render: function() {
-    this.$el.html(this.template({
-      name: 'nick'
-    }));
+    this.$el.html(this.template(this.model.attributes));
     return this;
   }
 

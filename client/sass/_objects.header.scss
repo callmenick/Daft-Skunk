@@ -5,9 +5,14 @@
 ----------------------------------------------------------------------------- */
 
 .header {
-  padding: 48px;
+  padding: 24px;
 }
 
 .header__logo {
   text-align: center;
+}
+
+.header__logo > img {
+  display: block;
+  margin: 0 auto;
 }

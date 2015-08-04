@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Daft Skunk</title>
+  <link rel="stylesheet" href="dist/css/font-awesome.min.css">
   <link rel="stylesheet" href="dist/css/style.min.css">
   <script src="lib/jquery/dist/jquery.min.js"></script>
   <script src="lib/underscore/underscore-min.js"></script>
@@ -15,32 +16,67 @@
 
   <header class="header">
     <div class="header__logo">
-      daft skunk
+      <img src="dist/img/logo.png" alt="Daft Skunk is playing in my house, in my house.">
     </div>
   </header><!-- /header -->
 
-  <main id="app" class="app">
-    <div id="library" class="library"></div><!-- /library -->
-  </main><!-- /app -->
+  <main id="app" class="app"></main><!-- /app -->
+  
+  <footer class="footer">
+    a <a href="http://callmenick.com">callmenick.com</a> production
+  </footer>
 
 </div><!-- /container -->
 
 <!-- track controls template -->
-<script id="track-controls-template" type="text/x-handlebars-template">
-  <ul class="tracks-controls__items">
-    <li><a href="#">add track</a></li>
-    <li><a href="#">remove all tracks</a></li>
-    <li><a href="#">play</a></li>
-    <li><a href="#">pause</a></li>
+<script id="controls-template" type="text/x-handlebars-template">
+  <ul class="controls__items">
+    <li class="controls__item">
+      <a href="#" class="controls__add-channel"><i class="fa fa-plus"></i> add channel</a>
+    </li>
+    <li class="controls__item controls__item--play">
+      <a href="#" class="controls__play"><i class="fa fa-play"></i> play your skunk</a>
+    </li>
   </ul>
 </script>
 
 <!-- track template -->
-<script id="track-template" type="text/x-handlebars-template">
-  {{ name }}
+<script id="channel-template" type="text/x-handlebars-template">
+  {{ id }}
 </script>
 
-<script src="dist/js/daftskunk.min.js"></script>
+<!-- samples template -->
+<script id="samples-template" type="text/x-handlebars-template">
+  
+</script>
+
+<!-- sample template -->
+<script id="sample-template" type="text/x-handlebars-template">
+  <div class="sample__field sample__title">{{ title }}</div>
+  <div class="sample__field sample__length">{{ length }}</div>
+  <div class="sample__field sample__preview">preview</div>
+  <div class="sample__field sample__add">add</div>
+</script>
+
+<!-- models -->
+<script src="js/models/SampleModel.js"></script>
+<script src="js/models/ChannelModel.js"></script>
+<script src="js/models/AppModel.js"></script>
+
+<!-- collections -->
+<script src="js/collections/SamplesCollection.js"></script>
+<script src="js/collections/ChannelsCollection.js"></script>
+
+<!-- views -->
+<script src="js/views/SamplesView.js"></script>
+<script src="js/views/SampleView.js"></script>
+<script src="js/views/ChannelsView.js"></script>
+<script src="js/views/ChannelView.js"></script>
+<script src="js/views/ControlsView.js"></script>
+<script src="js/views/AppView.js"></script>
+
+<!-- app -->
+<script src="js/app.js"></script>
 
 </body>
 </html>

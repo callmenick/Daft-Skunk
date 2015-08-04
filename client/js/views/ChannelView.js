@@ -1,16 +1,16 @@
 ////////////////////////////////////////////////
-// ControlsView.js
+// ChannelView.js
 ////////////////////////////////////////////////
 
 var app = app || {};
 
-app.ControlsView = Backbone.View.extend({
+app.ChannelView = Backbone.View.extend({
 
   tagName: 'div',
 
-  className: 'tracks-controls',
+  className: 'channel',
 
-  template: Handlebars.compile($('#track-controls-template').html()),
+  template: Handlebars.compile($('#channel-template').html()),
 
   events: {
   },
