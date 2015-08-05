@@ -72,6 +72,7 @@ app.SampleView = Backbone.View.extend({
     if (channelId) {
       var channelModel = app.channelsCollection.get(channelId);
       channelModel.addToChannel(this.model.cid);
+      this.$el.find('.sample__select-channel').prop('selectedIndex', 0);
     }
   }
 
