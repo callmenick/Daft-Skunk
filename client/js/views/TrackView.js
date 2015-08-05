@@ -13,6 +13,7 @@ app.TrackView = Backbone.View.extend({
   template: Handlebars.compile($('#track-template').html()),
 
   events: {
+    'click .track__remove' : 'removeFromSkunk'
   },
 
   initialize: function() {
@@ -49,7 +50,13 @@ app.TrackView = Backbone.View.extend({
   },
 
   removeFromSkunk: function() {
+    var id = this.cid;
+    delete app.skunkPunk[id];
 
+    this.undelegateEvents();
+    this.$el.removeData().unbind(); 
+    this.remove();  
+    Backbone.View.prototype.remove.call(this);
   },
 
   updateSkunk: function() {

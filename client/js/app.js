@@ -10,6 +10,8 @@ var app = app || {};
 
 $(document).ready(function() {
   app.skunkPunk = {};
+  app.timers = [];
+  app.ticker;
 
   app.channelsCollection = new app.ChannelsCollection();
   app.samplesCollection = new app.SamplesCollection();

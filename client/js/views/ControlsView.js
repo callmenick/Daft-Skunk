@@ -15,7 +15,7 @@ app.ControlsView = Backbone.View.extend({
   events: {
     'click .controls__add-channel'    : 'addChannel',
     'click .controls__play'           : 'playSkunk',
-    'click .controls__pause'          : 'pauseSkunk'
+    'click .controls__pause'          : 'stopSkunk'
   },
 
   initialize: function() {
@@ -38,40 +38,51 @@ app.ControlsView = Backbone.View.extend({
     this.$el.find('.controls__play')
       .removeClass('controls__play')
       .addClass('controls__pause')
-      .html('<i class="fa fa-pause"></i> pause your skunk');
+      .html('<i class="fa fa-stop"></i> stop your skunk');
 
-    for (var key in app.skunkPunk) {
-      var item = app.skunkPunk[key];
+    _.each(app.skunkPunk, function(item, key) {
       var file = item.file;
       var delay = item.delay;
-      this.playTrack(file, delay);
-    }
+      app.timers.push(setTimeout(function() {file[0].play();}, delay));
+    }.bind(this));
 
     this.moveTicker();
   },
 
-  playTrack: function(file, delay) {
-    setTimeout(function() {
-      file[0].play();
-    }, delay);
-  },
-
-  pauseSkunk: function(e) {
+  stopSkunk: function(e) {
     e.preventDefault();
 
     this.$el.find('.controls__pause')
       .removeClass('controls__pause')
       .addClass('controls__play')
       .html('<i class="fa fa-play"></i> play your skunk');
+
+    _.each(app.timers, function(timer) {
+      clearTimeout(timer);
+    });
+
+    _.each(app.skunkPunk, function(item, key) {
+      var file = item.file;
+      file[0].pause();
+      file[0].currentTime = 0;
+    }.bind(this));
+
+    this.stopTicker();
   },
 
   moveTicker: function() {
     var ticker = this.$el.find('.controls__ticker--tick');
-    setInterval(function() {
+
+    app.ticker = setInterval(function() {
       var left = ticker[0].style.left;      
       left = parseFloat(left);
       ticker[0].style.left = left + 0.04166 + '%';
     }, 100);
+  },
+
+  stopTicker: function() {
+    clearInterval(app.ticker);
+    this.$el.find('.controls__ticker--tick')[0].style.left = 0;
   }
 
 });
