@@ -4,13 +4,14 @@ A fun little daft skunk project that allows users to build a daft punk audio tra
 
 ## Technologies
 
-* Node
-* Express
-* Mongo
 * Backbone
+* Handlebars
 * Web Audio
-* SVG
 
 ## Built By
 
-Nick Salloum (nick@callmenick.com)
+Nick Salloum <nick@callmenick.com>
+
+## License
+
+MIT
