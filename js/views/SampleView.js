@@ -29,7 +29,7 @@ app.SampleView = Backbone.View.extend({
   },
 
   render: function() {
-    this.model.attributes.timeSeconds = (this.model.attributes.time/1000).toFixed(2);
+    this.model.attributes.timeSeconds = (this.model.attributes.time/1000).toFixed(0);
     this.$el.html(this.template(this.model.attributes));
 
     this.renderChannelSelections();

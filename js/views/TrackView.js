@@ -19,7 +19,7 @@ app.TrackView = Backbone.View.extend({
   initialize: function() {
     this.render();
 
-    this.$el.on('dragMove', function() {
+    this.$el.on('dragMove', function(event, pointer, moveVector) {
       this.updateSkunk();
     }.bind(this));
   },
@@ -28,13 +28,13 @@ app.TrackView = Backbone.View.extend({
     this.$el.html(this.template(this.model.attributes));
 
     this.$el.css({
-      position: 'absolute',
       width: (this.model.get('timeSeconds') / 240) * 100 + '%'
     });
 
     this.$el.draggabilly({
       axis: 'x',
-      containment: this.$el.parent()
+      containment: this.$el.parent(),
+      grid: [4, 4]
     });
 
     this.addToSkunk();
@@ -45,7 +45,8 @@ app.TrackView = Backbone.View.extend({
   addToSkunk: function() {
     app.skunkPunk[this.cid] = {
       file: this.$el.find('.track__audio'),
-      delay: 0
+      delay: 0,
+      x: this.$el.data('draggabilly').position.x
     };
   },
 
@@ -60,9 +61,15 @@ app.TrackView = Backbone.View.extend({
   },
 
   updateSkunk: function() {
-    var delay = this.$el.data('draggabilly').position.x / 1140;
+    var delay = this.$el.data('draggabilly').position.x / 960;
 
     app.skunkPunk[this.cid].delay = delay*240*1000;
+  },
+
+  delayEnableDragabillity: function() {
+    setTimeout(function() {
+      this.$el.draggabilly('enable');
+    }.bind(this), 1000);
   }
 
 });

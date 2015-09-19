@@ -23,13 +23,11 @@ var uglify = require('gulp-uglify');
 //////////////////////////////////////////////////
 
 var filePaths = {
-  sass: ['client/sass/**/*.scss'],
-  scripts: ['client/js/**/*.js']
+  sass: ['sass/**/*.scss'],
 };
 
 var dirPaths = {
-  css: 'client/dist/css/',
-  scripts: 'client/dist/js/'
+  css: 'dist/css/'
 };
 
 //////////////////////////////////////////////////
@@ -53,18 +51,6 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(dirPaths.css));
 });
 
-gulp.task('scripts', function() {
-  gulp.src(filePaths.scripts)
-    .pipe(concat('daftskunk.js'))
-    .pipe(gulp.dest(dirPaths.scripts))
-    .pipe(uglify().on('error', gutil.log))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest(dirPaths.scripts));
-});
-
 gulp.task('watch', function() {
   gulp.watch(filePaths.sass, ['styles']);
-  // gulp.watch(filePaths.scripts, ['scripts']);
 });
